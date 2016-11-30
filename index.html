@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <title>Python Flask Bucket List App</title>
+ 
+ 
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet" >
+ 
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+
+    <!-- table style -->
+    <link rel="stylesheet" type="text/css"
+    href="\static\style.css">
+ 
+</head>
+ 
+<body>
+ 
+    <div class="container">
+        <div class="header">
+           
+        </div>
+ 
+        <div class="jumbotron">
+            <h1>Zoo Information</h1>
+        
+        </div>
+        <div>
+        <table>
+        <tr>  
+        <th>Animal Name</th>
+        <th>Species</th>
+        <th>Breed</th>
+        <th>Country</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Colour</th>
+        <th>Height</th>
+        <th>Weight</th>
+     
+        </tr>
+        <!-- loop through animals and output one row for each record -->
+        {% for animal in animals %}
+            <tr>
+            
+        <td>{{animal[1]}}</td>
+        <td>{{animal[2]}}</td>
+        <td>{{animal[3]}}</td>
+        <td>{{animal[4]}}</td>
+        <td>{{animal[5]}}</td>
+        <td>{{animal[6]}}</td>
+        <td>{{animal[7]}}</td>
+        <td>{{animal[8]}}</td>
+        <td>{{animal[9]}}</td>
+            </tr>
+                
+        {%endfor %}
+        </table>
+        </div>
+ 
+        <footer class="footer">
+            <p>&copy; Dublin Zoo</p>
+        </footer>
+ 
+    </div>
+</body>
+ 
+</html>
