@@ -49,7 +49,7 @@ namespace WhatsAppMessenger
                 txtName.Focus();
                 return;
             }
-            if (WhatsAppApi.Register.WhatsRegisterV2.RequestCode(txtNumber.Text, out password, "sms"))
+            if(WhatsAppApi.Register.WhatsRegisterV2.RequestCode(txtNumber.Text,out password,"sms"))
             {
                 if (!string.IsNullOrEmpty(password))
                     Save();

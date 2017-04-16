@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WhatsAppForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.messagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,12 +44,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnAddEdit = new System.Windows.Forms.Button();
-            this.btnRemove = new System.Windows.Forms.Button();
             this.listUsers = new System.Windows.Forms.ListBox();
+            this.btnRemove = new System.Windows.Forms.Button();
+            this.btnAddEdit = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -75,14 +78,14 @@
             // signOutToolStripMenuItem
             // 
             this.signOutToolStripMenuItem.Name = "signOutToolStripMenuItem";
-            this.signOutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.signOutToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.signOutToolStripMenuItem.Text = "Sign out";
             this.signOutToolStripMenuItem.Click += new System.EventHandler(this.signOutToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -98,12 +101,13 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.btnSignIn);
             this.panel1.Controls.Add(this.chkRemeber);
             this.panel1.Controls.Add(this.txtPassword);
@@ -115,6 +119,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(259, 411);
             this.panel1.TabIndex = 1;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // btnSignIn
             // 
@@ -171,6 +176,7 @@
             this.label2.Size = new System.Drawing.Size(56, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Password:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -180,6 +186,7 @@
             this.label1.Size = new System.Drawing.Size(81, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Phone Number:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // panel2
             // 
@@ -192,15 +199,14 @@
             this.panel2.TabIndex = 5;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
-            // btnAddEdit
+            // listUsers
             // 
-            this.btnAddEdit.Location = new System.Drawing.Point(15, 14);
-            this.btnAddEdit.Name = "btnAddEdit";
-            this.btnAddEdit.Size = new System.Drawing.Size(100, 23);
-            this.btnAddEdit.TabIndex = 0;
-            this.btnAddEdit.Text = "Add/Edit";
-            this.btnAddEdit.UseVisualStyleBackColor = true;
-            this.btnAddEdit.Click += new System.EventHandler(this.btnAddEdit_Click);
+            this.listUsers.FormattingEnabled = true;
+            this.listUsers.Location = new System.Drawing.Point(3, 54);
+            this.listUsers.Name = "listUsers";
+            this.listUsers.Size = new System.Drawing.Size(253, 355);
+            this.listUsers.TabIndex = 2;
+            this.listUsers.DoubleClick += new System.EventHandler(this.listUsers_DoubleClick);
             // 
             // btnRemove
             // 
@@ -212,23 +218,36 @@
             this.btnRemove.UseVisualStyleBackColor = true;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
-            // listUsers
+            // btnAddEdit
             // 
-            this.listUsers.FormattingEnabled = true;
-            this.listUsers.Location = new System.Drawing.Point(3, 54);
-            this.listUsers.Name = "listUsers";
-            this.listUsers.Size = new System.Drawing.Size(253, 355);
-            this.listUsers.TabIndex = 2;
+            this.btnAddEdit.Location = new System.Drawing.Point(15, 14);
+            this.btnAddEdit.Name = "btnAddEdit";
+            this.btnAddEdit.Size = new System.Drawing.Size(100, 23);
+            this.btnAddEdit.TabIndex = 0;
+            this.btnAddEdit.Text = "Add/Edit";
+            this.btnAddEdit.UseVisualStyleBackColor = true;
+            this.btnAddEdit.Click += new System.EventHandler(this.btnAddEdit_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::WhatsAppMessenger.Properties.Resources._1492379763_whatsapp;
+            this.pictureBox1.Location = new System.Drawing.Point(79, 13);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 94);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
             // 
             // WhatsAppForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 451);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "WhatsAppForm";
@@ -240,6 +259,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -265,5 +285,6 @@
         private System.Windows.Forms.ListBox listUsers;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Button btnAddEdit;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

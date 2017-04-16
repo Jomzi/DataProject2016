@@ -184,5 +184,31 @@ namespace WhatsAppMessenger
 
         }
 
+        private void listUsers_DoubleClick(object sender, EventArgs e)
+        {
+            var obj = listUsers.SelectedItem;
+            if(obj != null)
+            {
+                using (ChatForm frm = new ChatForm(wa, obj) { Text = obj.GetType().GetProperty("FulName").GetValue(obj, null).ToString() })
+                {
+                    frm.ShowDialog();
+                }
+            }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
